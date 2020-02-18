@@ -6,8 +6,8 @@ public class test : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
-    { int s;
-        for (int i = 1; i < 6; i++)
+    { int s=0;
+        for (int i = 1; i < 7; i++)
             s = s + 1;
         //test 12345555
     }
