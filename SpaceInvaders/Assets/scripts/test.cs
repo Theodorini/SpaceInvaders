@@ -9,6 +9,9 @@ public class test : MonoBehaviour
 
     {
         int s;
+        int y;
+        y = 2;
+        y++;
         for (int i = 1; i < 6; i++)
         {
             s = i + 1;
