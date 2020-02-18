@@ -11,7 +11,7 @@ public class test : MonoBehaviour
             s = s + 1;
         //test 12345555
     }
-
+    //alt comm like share
     // Update is called once per frame
     void Update()
     {
