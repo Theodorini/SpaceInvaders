@@ -11,6 +11,7 @@ public class SpaceShip : MonoBehaviour
         MoveShip();
         
     }
+
     private void MoveShip()
     {
         if (Input.touchCount > 0)
@@ -27,4 +28,6 @@ public class SpaceShip : MonoBehaviour
             }
         }
     }
+
+
 }
