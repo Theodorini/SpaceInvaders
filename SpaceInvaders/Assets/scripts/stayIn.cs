@@ -4,26 +4,25 @@ using UnityEngine;
 
 public class stayIn : MonoBehaviour
 {
-    float horizontalMin, horizontalMax;
-    float verticalMin, verticalMax;
-    // Start is called before the first frame update
+    public Camera MainCamera;
+    private Vector2 screenBounds;
+    private float objectWidth;
+    private float objectHeight;
+
     void Start()
     {
-        Camera camera = Camera.main;
-        float halfHeight = camera.orthographicSize;
-        float halfWidth = camera.aspect * halfHeight;
-
-        horizontalMin = -halfWidth;
-        horizontalMax = halfWidth;
-        verticalMin = -halfHeight;
-        verticalMax = halfHeight;
+        screenBounds = MainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, MainCamera.transform.position.z));
+        objectWidth = transform.GetComponent<RectTransform>().rect.width/2; //extents = size of width / 2
+        objectHeight = transform.GetComponent<RectTransform>().rect.height/2; //extents = size of height / 2
+        Debug.Log(screenBounds.x + "   " + screenBounds.y + "   " + objectWidth + "   " + objectHeight);
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, 0, 2*horizontalMax),
-     Mathf.Clamp(transform.position.y, 0, 2*verticalMax),
-     transform.position.z);
+        Vector3 viewPos = transform.position;
+        viewPos.x = Mathf.Clamp(viewPos.x, objectWidth +4, screenBounds.x -objectWidth);
+        viewPos.y = Mathf.Clamp(viewPos.y, objectHeight+2, screenBounds.y -objectHeight );
+        transform.position = viewPos;
     }
 }
