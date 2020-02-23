@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    private Rigidbody2D Rb;
     public float speed = 5;
-    public Rigidbody2D Rb;
     void Start()
     {
+        Rb = gameObject.GetComponent<Rigidbody2D>();
         Rb.velocity = transform.up * speed;
     }
 

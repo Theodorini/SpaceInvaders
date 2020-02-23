@@ -5,16 +5,26 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int onHit;
-    public int HP=100;
+    private int HP;
 
-    private void Start()
+    public void Constructor(int HP, int moveSelect, int speed)
     {
+        this.HP = HP;
         onHit = (int)(HP * 0.1);
-    }
-    void Update()
-    {
+        switch(moveSelect)
+        {
+            case 1:
+                gameObject.AddComponent<DownMovement>();
+                gameObject.GetComponent<DownMovement>().SetSpeed(speed);
+            break;
 
+
+
+            default:
+                break;
+        }
     }
+    
     public void TakeDamage(int demage)
     {
         HP -= demage;
@@ -24,5 +34,6 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
    
 }

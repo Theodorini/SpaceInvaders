@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public Transform FirePoint;
     public float shootingSpeed;
     public GameObject bulletPrefab;
+    private Transform FirePoint;
     void Start()
     {
-        InvokeRepeating("Shoot", 0.1f, shootingSpeed);
+        FirePoint = gameObject.GetComponentInChildren<Transform>();
+        InvokeRepeating("Shoot", 0.1f, shootingSpeed);//rate of fire = shootingSpeend (delay between shots) 
     }
     
     private void Shoot()

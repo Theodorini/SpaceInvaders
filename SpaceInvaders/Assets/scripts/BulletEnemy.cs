@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class BulletEnemy : MonoBehaviour
 {
+    private Rigidbody2D Rb;
     public float speed = 5;
-    public Rigidbody2D Rb;
     void Start()
     {
+        Rb = gameObject.GetComponent<Rigidbody2D>();
         Rb.velocity = (transform.up * -1) * speed;
     }
 
@@ -16,7 +17,7 @@ public class BulletEnemy : MonoBehaviour
         SpaceShip target = collision.GetComponent<SpaceShip>();
         if (target != null)
         {
-            target.TakeDamage(20);
+            target.TakeDamage(10);
             Destroy(gameObject);
         }
         if (collision.GetComponent<Border>() != null)

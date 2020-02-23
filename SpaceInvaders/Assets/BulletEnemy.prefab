@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4436943610285073186}
   - component: {fileID: 4436943610285073185}
   - component: {fileID: 2184509142442647523}
+  - component: {fileID: -8032346151110982954}
   - component: {fileID: -2147142553681408857}
   m_Layer: 0
   m_Name: BulletEnemy
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: ba57e80cf3810a84d8cea7d882336adb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 12.8, y: 12.8}
   m_AdaptiveModeThreshold: 0.5
@@ -131,6 +132,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.0831633, y: 10.6534815}
   m_EdgeRadius: 0
+--- !u!114 &-8032346151110982954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4436943610285073184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2372c6b23a84bdf4d9e292cf4003659a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootingSpeed: 0
+  bulletPrefab: {fileID: 0}
 --- !u!114 &-2147142553681408857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,5 +158,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a74b518088e4a4cb8d3bc5fdd7a534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 280.11
-  Rb: {fileID: 4436943610285073185}
+  speed: 100
