@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class SpaceShip : MonoBehaviour
 {
+    public int HP=100;
     public float moveSpeed =25;
 
     private void Update()
     {
         MoveShip();
+      
         
     }
 
@@ -28,6 +30,28 @@ public class SpaceShip : MonoBehaviour
             }
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Enemy target = collision.GetComponent<Enemy>();
+        if (target != null)
+        {
+            HP -= target.onHit;
+            Destroy(collision.gameObject);
+            Debug.Log("taget destroyed");
+        }
+        if (HP <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
+    public void TakeDamage(int damage)
+    {
+        HP -= damage;
+        if (HP <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
 }

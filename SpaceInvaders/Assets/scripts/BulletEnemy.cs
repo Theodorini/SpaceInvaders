@@ -2,24 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class BulletEnemy : MonoBehaviour
 {
     public float speed = 5;
     public Rigidbody2D Rb;
     void Start()
     {
-        Rb.velocity = transform.up * speed;
+        Rb.velocity = (transform.up * -1) * speed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Enemy target = collision.GetComponent<Enemy>();
-        if(target!=null)
+        SpaceShip target = collision.GetComponent<SpaceShip>();
+        if (target != null)
         {
-            target.TakeDamage(10);
+            target.TakeDamage(20);
             Destroy(gameObject);
         }
-        if(collision.GetComponent<Border>()!=null)
+        if (collision.GetComponent<Border>() != null)
         {
             Destroy(gameObject);
         }
