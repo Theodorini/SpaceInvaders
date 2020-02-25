@@ -14,7 +14,6 @@ public class stayIn : MonoBehaviour
         screenBounds = MainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, MainCamera.transform.position.z));
         objectWidth = transform.GetComponent<RectTransform>().rect.width/2; //extents = size of width / 2
         objectHeight = transform.GetComponent<RectTransform>().rect.height/2; //extents = size of height / 2
-        Debug.Log(screenBounds.x + "   " + screenBounds.y + "   " + objectWidth + "   " + objectHeight);
     }
 
     // Update is called once per frame

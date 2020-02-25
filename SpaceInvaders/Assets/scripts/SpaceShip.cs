@@ -35,7 +35,7 @@ public class SpaceShip : MonoBehaviour
         Enemy target = collision.GetComponent<Enemy>();
         if (target != null)
         {
-            HP -= target.onHit;
+            HP -= target.getDamageOnHit();
             Destroy(collision.gameObject);
             Debug.Log("taget destroyed");
         }

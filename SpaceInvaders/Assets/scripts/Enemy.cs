@@ -7,10 +7,11 @@ public class Enemy : MonoBehaviour
     public int onHit;
     private int HP;
 
-    public void Constructor(int HP, int moveSelect, int speed)
+    public void Constructor(int HP, int moveSelect, int speed, float RTF,float bulletSpeed, int damage)
     {
         this.HP = HP;
         onHit = (int)(HP * 0.1);
+        gameObject.GetComponent<Gun>().ConstructorBulletEnemy(RTF, bulletSpeed, damage);
         switch(moveSelect)
         {
             case 1:
@@ -28,12 +29,14 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int demage)
     {
         HP -= demage;
-        Debug.Log(HP);
         if (HP <= 0)
         {
             Destroy(gameObject);
         }
     }
-
+    public int getDamageOnHit()
+    {
+        return onHit;
+    }
    
 }

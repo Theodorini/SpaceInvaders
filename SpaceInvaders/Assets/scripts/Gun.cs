@@ -7,14 +7,26 @@ public class Gun : MonoBehaviour
     public float shootingSpeed;
     public GameObject bulletPrefab;
     private Transform FirePoint;
-    void Start()
-    {
-        FirePoint = gameObject.GetComponentInChildren<Transform>();
-        InvokeRepeating("Shoot", 0.1f, shootingSpeed);//rate of fire = shootingSpeend (delay between shots) 
-    }
-    
+
     private void Shoot()
     {
         Instantiate(bulletPrefab, FirePoint.position, FirePoint.rotation);
+
     }
+    public void ConstructorBulletEnemy(float RTF, float bulletSpeed, int damage)
+    {
+        if(bulletPrefab.GetComponent<BulletEnemy>()!=null)
+        {
+            shootingSpeed = RTF;
+            bulletPrefab.GetComponent<BulletEnemy>().Constructor(bulletSpeed, damage);
+            startShoot();
+        }
+    }
+    
+    private void startShoot()
+    {
+        FirePoint = gameObject.transform.GetChild(0).GetComponent<Transform>();
+        InvokeRepeating("Shoot", 1f, shootingSpeed);//rate of fire = shootingSpeend (delay between shots) 
+    }
+    
 }
