@@ -10,14 +10,24 @@ public class GunPlayer : MonoBehaviour
     public int NrBullets;
     private void Shoot()
     {
-       
-        for(int i=1;i<=NrBullets/2;i++)
+        if (NrBullets % 2 == 0)
         {
-            Instantiate(bulletPrefab, FirePoint.position, Quaternion.Euler(new Vector3(0,0, i)));
-            Instantiate(bulletPrefab, FirePoint.position, Quaternion.Euler(new Vector3(0,0, -i)));
+            for (int i = 1; i <= NrBullets / 2; i++)
+            {
+                Instantiate(bulletPrefab, FirePoint.position, Quaternion.Euler(new Vector3(0, 0, i * 2 - 0.75f)));
+                Instantiate(bulletPrefab, FirePoint.position, Quaternion.Euler(new Vector3(0, 0, -(i * 2 - 0.75f))));
+            }
         }
-        if(NrBullets%2!=0)
+        else
+        {
+            for (int i = 1; i <= NrBullets / 2; i++)
+            {
+                Instantiate(bulletPrefab, FirePoint.position, Quaternion.Euler(new Vector3(0, 0, i * 2)));
+                Instantiate(bulletPrefab, FirePoint.position, Quaternion.Euler(new Vector3(0, 0, -i * 2 )));
+            }
             Instantiate(bulletPrefab, FirePoint.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+
+        }
 
     }
     
