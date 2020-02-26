@@ -614,10 +614,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3e2aa5670e40e4093dc2f67f3087d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingSpeed: 0.12
+  shootingSpeed: 0.2
   bulletPrefab: {fileID: 5446313779554884856, guid: e20c853ef2ad3b84c9ae5ae1b30eb130,
     type: 3}
-  NrBullets: 4
+  NrBullets: 1
 --- !u!222 &353849197
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -638,7 +638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f3fd49f02a2a4544b527192daaebfb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
+  HP: 1000
   moveSpeed: 25
 --- !u!114 &353849199
 MonoBehaviour:
@@ -1087,6 +1087,7 @@ MonoBehaviour:
   - {fileID: 462763930}
   - {fileID: 636498314}
   - {fileID: 636905585}
+  RngCounter_Powerups: 1
 --- !u!4 &536794264
 Transform:
   m_ObjectHideFlags: 0

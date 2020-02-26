@@ -31,6 +31,8 @@ public class Enemy : MonoBehaviour
         HP -= demage;
         if (HP <= 0)
         {
+            PowerupSpawner PowerupSpawner_Instance = gameObject.GetComponent<PowerupSpawner>();
+            PowerupSpawner_Instance.Spawn();
             Destroy(gameObject);
         }
     }

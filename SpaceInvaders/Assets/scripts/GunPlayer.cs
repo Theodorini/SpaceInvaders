@@ -36,7 +36,13 @@ public class GunPlayer : MonoBehaviour
         FirePoint = gameObject.transform.GetChild(0).GetComponent<Transform>();
         InvokeRepeating("Shoot", 1f, shootingSpeed);//rate of fire = shootingSpeend (delay between shots) 
     }
-    
+    //Currently used in SpaceShip to increase number of bullets
+    public void Increment_NrBullets()
+    {
+        NrBullets++;
+    }
+
+
 }
 /*
  * Strait fire
