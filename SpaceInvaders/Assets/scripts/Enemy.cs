@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
     
     public void TakeDamage(int demage)
     {
+        
         HP -= demage;
         if (HP <= 0)
         {
