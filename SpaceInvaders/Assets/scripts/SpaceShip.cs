@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class SpaceShip : MonoBehaviour
 {
+    public int maxHp = 100;
     public int HP=100;
     public float moveSpeed =25;
+    public HpBar hpBar;
 
     private void Update()
     {
@@ -35,16 +37,10 @@ public class SpaceShip : MonoBehaviour
         Enemy target = collision.GetComponent<Enemy>();
         if (target != null)
         {
-            HP -= target.getDamageOnHit();
+            TakeDamage(target.getDamageOnHit());
             Destroy(collision.gameObject);
-            Debug.Log("taget destroyed");
         }
         //Here we check what Power_Up we hit and apply it's effects
-       
-        if (HP <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
 
     public void TakeDamage(int damage)
@@ -52,7 +48,12 @@ public class SpaceShip : MonoBehaviour
         HP -= damage;
         if (HP <= 0)
         {
+            hpBar.SetBar(0f, maxHp);
             Destroy(gameObject);
+        }
+        else
+        {
+            hpBar.SetBar(HP, maxHp);
         }
     }
 

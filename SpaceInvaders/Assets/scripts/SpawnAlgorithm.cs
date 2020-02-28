@@ -15,7 +15,7 @@ public class SpawnAlgorithm : MonoBehaviour
        int spawnNumber = (int) Random.Range(1,1);
         while(spawnNumber--!=0)
         {
-            Spawners[(int)Random.Range(0, 4)].Spawn(1, (int)Random.Range(5,50), 50,1f,100,100);
+            Spawners[(int)Random.Range(0, 4)].Spawn(1, (int)Random.Range(5,50), 50,1f,100,15);
         }
     }
     public int Get_RngCounter_Powerups()
@@ -25,15 +25,9 @@ public class SpawnAlgorithm : MonoBehaviour
     public void Decrement_RngCounter_Powerups()
     {
         RngCounter_Powerups--;
-        Debug.Log("Decrement" +RngCounter_Powerups);
-        Debug.Break();
     }
     public void Resest_RngCounter_Powerups()
     {
-
-
-        Debug.Log("Reset" + RngCounter_Powerups);
-        Debug.Break();
         RngCounter_Powerups = 10; // Or any other value
     }
 }
