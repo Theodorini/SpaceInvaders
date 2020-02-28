@@ -25,9 +25,15 @@ public class SpawnAlgorithm : MonoBehaviour
     public void Decrement_RngCounter_Powerups()
     {
         RngCounter_Powerups--;
+        Debug.Log("Decrement" +RngCounter_Powerups);
+        Debug.Break();
     }
     public void Resest_RngCounter_Powerups()
     {
+
+
+        Debug.Log("Reset" + RngCounter_Powerups);
+        Debug.Break();
         RngCounter_Powerups = 10; // Or any other value
     }
 }

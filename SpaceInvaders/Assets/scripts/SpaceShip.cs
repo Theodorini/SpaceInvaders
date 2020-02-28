@@ -40,21 +40,7 @@ public class SpaceShip : MonoBehaviour
             Debug.Log("taget destroyed");
         }
         //Here we check what Power_Up we hit and apply it's effects
-        else
-        {
-            Power_Up target_power_up = collision.GetComponent<Power_Up>();
-            if (target_power_up != null)
-            {
-                if (target_power_up.Get_Type() == 1)
-                {
-                    GunPlayer gun_powerup_instance = gameObject.GetComponent<GunPlayer>();
-                    gun_powerup_instance.Increment_NrBullets();
-                    Destroy(collision.gameObject);
-                    Debug.Log("Well done comrade, you got that power_up");
-                }
-            }
-
-        }
+       
         if (HP <= 0)
         {
             Destroy(gameObject);

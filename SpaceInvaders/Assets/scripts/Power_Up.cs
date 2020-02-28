@@ -15,4 +15,35 @@ public class Power_Up : MonoBehaviour
         Type = type;
       
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        SpaceShip target = collision.GetComponent<SpaceShip>();
+        if(target!=null)
+        {
+            switch(Type)
+            {
+                case 1:
+                    target.GetComponent<GunPlayer>().Increment_NrBullets();
+                    break;
+            }
+            Destroy(gameObject);
+        }
+    }
 }
+/*
+ * else
+        {
+            Power_Up target_power_up = collision.GetComponent<Power_Up>();
+            if (target_power_up != null)
+            {
+                if (target_power_up.Get_Type() == 1)
+                {
+                    GunPlayer gun_powerup_instance = gameObject.GetComponent<GunPlayer>();
+                    gun_powerup_instance.Increment_NrBullets();
+                    Destroy(collision.gameObject);
+                    Debug.Log("Well done comrade, you got that power_up");
+                }
+            }
+
+        } 
+ */
