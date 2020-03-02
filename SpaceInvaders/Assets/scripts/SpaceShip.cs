@@ -39,6 +39,7 @@ public class SpaceShip : MonoBehaviour
         {
             TakeDamage(target.getDamageOnHit());
             Destroy(collision.gameObject);
+            gameObject.GetComponent<GunPlayer>().DecreaseBullets();
         }
         //Here we check what Power_Up we hit and apply it's effects
     }
@@ -55,6 +56,15 @@ public class SpaceShip : MonoBehaviour
         {
             hpBar.SetBar(HP, maxHp);
         }
+    }
+    public void IncreaseHP()
+    {
+        //increase HP with a quarter of maxHP
+        if (HP + maxHp / 4 > maxHp)
+            HP = maxHp;
+        else
+            HP += maxHp / 4;
+        hpBar.SetBar(HP, maxHp);
     }
 
 }

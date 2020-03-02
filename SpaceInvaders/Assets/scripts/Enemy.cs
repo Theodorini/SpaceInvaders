@@ -32,8 +32,10 @@ public class Enemy : MonoBehaviour
     
     public void TakeDamage(int demage)
     {
-        
+        if (HP <= 0)
+            return;
         HP -= demage;
+
         if (HP <= 0)
         {
             hpBar.SetBar(0f, maxHp);

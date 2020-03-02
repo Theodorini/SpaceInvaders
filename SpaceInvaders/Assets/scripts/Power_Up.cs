@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Power_Up : MonoBehaviour
 {
-    private int Type=1;
+    private int Type;
     public int Get_Type ()
     {
         return Type;
@@ -13,17 +13,23 @@ public class Power_Up : MonoBehaviour
     public void Constructor(int type)
     {
         Type = type;
-      
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         SpaceShip target = collision.GetComponent<SpaceShip>();
         if(target!=null)
         {
             switch(Type)
             {
-                case 1:
+                case 0:
                     target.GetComponent<GunPlayer>().Increment_NrBullets();
+                    break;
+                case 1:
+                    target.GetComponent<SpaceShip>().IncreaseHP();
+                    break;
+                default:
+                    Debug.Break();
                     break;
             }
             Destroy(gameObject);

@@ -6,7 +6,8 @@ public class PowerupSpawner : MonoBehaviour
 {
 
     //Called by an Enemy on his death,gets Rng.Counter from SpawnAlgorithm
-    public GameObject PowerUp_Prefab;
+    public int NumberOfPowerups = 2;
+    public GameObject[] PowerUp_Prefab;
     private Transform SpawnPoint;
     private int Rng;
     // Spawns an powerup of the given Type if the Rng says so;
@@ -17,22 +18,17 @@ public class PowerupSpawner : MonoBehaviour
         SpawnAlgorithm SpawnAlg_Script = SpawnAlg_Obj.GetComponent<SpawnAlgorithm>();
         Rng = SpawnAlg_Script.Get_RngCounter_Powerups();
         //check if type 1 is needed to spawn
-        int type = Random.Range(1, Rng);
-        switch(type)
-        {
-            case 1:
-                SpawnPoint= gameObject.transform; // get pos from Enemy here 
-                Power_Up PowerUp_Script = PowerUp_Prefab.GetComponent<Power_Up>();
-                PowerUp_Script.Constructor(1);
-                Instantiate(PowerUp_Prefab, SpawnPoint.transform.position, SpawnPoint.transform.rotation);
-                SpawnAlg_Script.Resest_RngCounter_Powerups();
+        int type = Random.Range(0, 2);
+        //int type = Random.Range(2, Rng);
 
-                break;
-            default:
-                //More if elses (Random.Range(1,Rng)==x) where x is the type of powerup
-                SpawnAlg_Script.Decrement_RngCounter_Powerups();
-                break;
+        SpawnPoint = gameObject.transform; // get pos from Enemy here 
+        if(type<NumberOfPowerups)
+        {
+            SpawnAlg_Script.Resest_RngCounter_Powerups();
+            GameObject obj =  Instantiate(PowerUp_Prefab[type], SpawnPoint.transform.position, SpawnPoint.transform.rotation);
+            obj.GetComponent<Power_Up>().Constructor(type);
         }
-        
+        else
+            SpawnAlg_Script.Decrement_RngCounter_Powerups(); 
     }
 }

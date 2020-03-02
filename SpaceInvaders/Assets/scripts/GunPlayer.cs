@@ -39,9 +39,14 @@ public class GunPlayer : MonoBehaviour
     //Currently used in SpaceShip to increase number of bullets
     public void Increment_NrBullets()
     {
-        NrBullets++;
+        if(NrBullets<10)
+            NrBullets++;
     }
-
+    public void DecreaseBullets()
+    {
+        NrBullets -= NrBullets / 2;
+        //delete one half of bullets
+    }
 
 }
 /*
