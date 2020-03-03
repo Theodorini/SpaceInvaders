@@ -16,18 +16,28 @@ public class Power_Up : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
         SpaceShip target = collision.GetComponent<SpaceShip>();
         if(target!=null)
         {
             switch(Type)
             {
                 case 0:
+                    //increase number of bullets
                     target.GetComponent<GunPlayer>().Increment_NrBullets();
                     break;
                 case 1:
+                    //regen HP by 25%
                     target.GetComponent<SpaceShip>().IncreaseHP();
                     break;
+                case 2:
+                    //increase bullet damage
+                    target.GetComponent<GunPlayer>().IncreaseDamage();
+                    break;
+                case 3:
+                    //Max bullets timmed
+                    target.GetComponent<GunPlayer>().MaxBullets();
+                    break;
+
                 default:
                     Debug.Break();
                     break;

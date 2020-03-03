@@ -8,25 +8,30 @@ public class GunPlayer : MonoBehaviour
     public GameObject bulletPrefab;
     private Transform FirePoint;
     public int NrBullets;
+    public int BulletDamage = 10;
     private void Shoot()
     {
         if (NrBullets % 2 == 0)
         {
             for (int i = 1; i <= NrBullets / 2; i++)
             {
-                Instantiate(bulletPrefab, FirePoint.position, Quaternion.Euler(new Vector3(0, 0, i * 2 - 0.75f)));
-                Instantiate(bulletPrefab, FirePoint.position, Quaternion.Euler(new Vector3(0, 0, -(i * 2 - 0.75f))));
+                GameObject bullet1 = Instantiate(bulletPrefab, FirePoint.position, Quaternion.Euler(new Vector3(0, 0, i * 2 - 0.75f)));
+                bullet1.GetComponent<Bullet>().SetDamage(BulletDamage);
+                GameObject bullet2 = Instantiate(bulletPrefab, FirePoint.position, Quaternion.Euler(new Vector3(0, 0, -(i * 2 - 0.75f))));
+                bullet2.GetComponent<Bullet>().SetDamage(BulletDamage);
             }
         }
         else
         {
             for (int i = 1; i <= NrBullets / 2; i++)
             {
-                Instantiate(bulletPrefab, FirePoint.position, Quaternion.Euler(new Vector3(0, 0, i * 2)));
-                Instantiate(bulletPrefab, FirePoint.position, Quaternion.Euler(new Vector3(0, 0, -i * 2 )));
+               GameObject bullet1 = Instantiate(bulletPrefab, FirePoint.position, Quaternion.Euler(new Vector3(0, 0, i * 2)));
+                bullet1.GetComponent<Bullet>().SetDamage(BulletDamage);
+                GameObject bullet2 = Instantiate(bulletPrefab, FirePoint.position, Quaternion.Euler(new Vector3(0, 0, -i * 2 )));
+                bullet2.GetComponent<Bullet>().SetDamage(BulletDamage);
             }
-            Instantiate(bulletPrefab, FirePoint.position, Quaternion.Euler(new Vector3(0, 0, 0)));
-
+            GameObject bullet = Instantiate(bulletPrefab, FirePoint.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+            bullet.GetComponent<Bullet>().SetDamage(BulletDamage);
         }
 
     }
@@ -34,6 +39,7 @@ public class GunPlayer : MonoBehaviour
     private void Start()
     {
         FirePoint = gameObject.transform.GetChild(0).GetComponent<Transform>();
+        bulletPrefab.GetComponent<Bullet>().SetDamage(BulletDamage);
         InvokeRepeating("Shoot", 1f, shootingSpeed);//rate of fire = shootingSpeend (delay between shots) 
     }
     //Currently used in SpaceShip to increase number of bullets
@@ -47,7 +53,30 @@ public class GunPlayer : MonoBehaviour
         NrBullets -= NrBullets / 2;
         //delete one half of bullets
     }
+    public void IncreaseDamage()
+    {
+        StartCoroutine(IncreaseDamageCorutine());
+    }
 
+    private  IEnumerator IncreaseDamageCorutine()
+    {
+        int value = BulletDamage / 4;
+        BulletDamage += value;
+         yield return new WaitForSecondsRealtime(5f);
+        BulletDamage -= value;
+    }
+
+    public void MaxBullets()
+    {
+        StartCoroutine(MaxBulletsCorutine());
+    }
+    private IEnumerator MaxBulletsCorutine()
+    {
+        int value = NrBullets;
+        NrBullets = 12;
+        yield return new WaitForSecondsRealtime(5f);
+        NrBullets = value;
+    }
 }
 /*
  * Strait fire

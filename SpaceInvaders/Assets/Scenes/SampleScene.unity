@@ -590,7 +590,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 55, y: 28}
+  m_AnchoredPosition: {x: 65.6, y: 34.2}
   m_SizeDelta: {x: 20, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &353849195
@@ -630,6 +630,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5446313779554884856, guid: e20c853ef2ad3b84c9ae5ae1b30eb130,
     type: 3}
   NrBullets: 1
+  BulletDamage: 10
 --- !u!222 &353849197
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1036,7 +1037,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 89.28728
+  orthographic size: 88.4227
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2

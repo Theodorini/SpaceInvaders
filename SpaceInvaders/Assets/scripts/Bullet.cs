@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     private Rigidbody2D Rb;
     public float speed = 5;
-    public int damage=10;
+    private int damage;
     void Start()
     {
         Rb = gameObject.GetComponent<Rigidbody2D>();
@@ -23,4 +23,14 @@ public class Bullet : MonoBehaviour
         }
        
     }
+    public int GetDamage()
+    {
+        return damage;
+    }
+    public void SetDamage(int value)
+    {
+        
+        damage = value;
+    }
+
 }
