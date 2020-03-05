@@ -291,7 +291,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 36, y: -28}
+  m_AnchoredPosition: {x: 36, y: -49}
   m_SizeDelta: {x: 2000, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &272277240
@@ -604,7 +604,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 65.6, y: 34.2}
+  m_AnchoredPosition: {x: 91, y: 17}
   m_SizeDelta: {x: 20, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &353849195
@@ -1131,7 +1131,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &570198281
 GameObject:
@@ -1376,7 +1376,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1889,6 +1889,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 3139926024742479830, guid: fd3f8785c8eff7a4fa155de51b6a305b,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -156442149
+      objectReference: {fileID: 0}
+    - target: {fileID: 3139926024742479830, guid: fd3f8785c8eff7a4fa155de51b6a305b,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8101192537672184401, guid: fd3f8785c8eff7a4fa155de51b6a305b,
         type: 3}
       propertyPath: m_Name
@@ -1946,7 +1956,7 @@ PrefabInstance:
     - target: {fileID: 4425175728787288751, guid: 1c6f924de0c53f74e99112d749177f5f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4425175728787288751, guid: 1c6f924de0c53f74e99112d749177f5f,
         type: 3}
