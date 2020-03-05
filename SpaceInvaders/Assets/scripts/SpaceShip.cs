@@ -8,7 +8,16 @@ public class SpaceShip : MonoBehaviour
     public int HP=100;
     public float moveSpeed =25;
     public HpBar hpBar;
+    public GameObject Shield;
+    public GameObject Bomb;
+    private bool Shield_running = false;
+    private bool Bomb_running = false;
 
+    private void Start()
+    {
+        Shield.SetActive(false);
+        Bomb.SetActive(false);
+    }
     private void Update()
     {
         MoveShip();
@@ -35,7 +44,7 @@ public class SpaceShip : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Enemy target = collision.GetComponent<Enemy>();
-        if (target != null)
+        if ((target != null)&&(Bomb_running==false))
         {
             TakeDamage(target.getDamageOnHit());
             Destroy(collision.gameObject);
@@ -66,5 +75,50 @@ public class SpaceShip : MonoBehaviour
             HP += maxHp / 4;
         hpBar.SetBar(HP, maxHp);
     }
+    public IEnumerator StartShield()
+    {
+        
+        Shield_running = true;
+     
+        Debug.Log("Am intrat");
+        Shield.SetActive(true);
+       
+        yield return new WaitForSecondsRealtime(5f);
+        Debug.Log("Am iesit");
+        Shield_running = false;
+        Shield.SetActive(false);
 
+    }
+    public void StartShield_Coroutine()
+    {
+
+        StartCoroutine(StartShield());
+
+    }
+    public void Start_bomb_Coroutine()
+    {
+        StartCoroutine(Start_bomb());
+    }
+    public IEnumerator Start_bomb()
+    {
+        
+        Bomb_running = true;
+        Bomb.SetActive(true);
+        yield return new WaitForSecondsRealtime(0.2f);
+        Bomb.SetActive(false);
+        Bomb_running = false;
+    }
+
+    public bool Get_ShieldRunning()
+    {
+        return Shield_running;
+    }
+    public void Set_BombStatus(bool n)
+    {
+        Bomb_running = n;
+    }
+    public bool Get_BombStatus()
+    {
+        return Bomb_running;
+    }
 }

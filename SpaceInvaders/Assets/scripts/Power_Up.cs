@@ -37,7 +37,15 @@ public class Power_Up : MonoBehaviour
                     //Max bullets timmed
                     target.GetComponent<GunPlayer>().MaxBullets();
                     break;
-
+                case 4:
+                    //Shield
+                    if(target.GetComponent<SpaceShip>().Get_ShieldRunning() == false)
+                       target.GetComponent<SpaceShip>().StartShield_Coroutine();
+                    break;
+                case 5:
+                    //Bomb
+                    target.GetComponent<SpaceShip>().Start_bomb_Coroutine();
+                    break;
                 default:
                     Debug.Break();
                     break;
