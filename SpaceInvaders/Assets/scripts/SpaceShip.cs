@@ -12,6 +12,7 @@ public class SpaceShip : MonoBehaviour
     public GameObject Bomb;
     private bool Shield_running = false;
     private bool Bomb_running = false;
+    private bool PhaseOut_running = false;
 
     private void Start()
     {
@@ -44,7 +45,7 @@ public class SpaceShip : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Enemy target = collision.GetComponent<Enemy>();
-        if ((target != null)&&(Bomb_running==false))
+        if ((target != null)&&(Bomb_running==false)&&(PhaseOut_running==false))
         {
             TakeDamage(target.getDamageOnHit());
             Destroy(collision.gameObject);
@@ -108,14 +109,26 @@ public class SpaceShip : MonoBehaviour
         Bomb.SetActive(false);
         Bomb_running = false;
     }
+    public void Start_PhaseOut_Coroutine()
+    {
+        StartCoroutine(Start_PhaseOut());
+    }
+    public IEnumerator Start_PhaseOut()
+    {
+        Debug.Log("In");
+        PhaseOut_running = true;
+        yield return new WaitForSecondsRealtime(5f);
+        PhaseOut_running = false;
+        Debug.Log("Out");
+    }
 
     public bool Get_ShieldRunning()
     {
         return Shield_running;
     }
-    public void Set_BombStatus(bool n)
+    public bool Get_PhaseOut_running()
     {
-        Bomb_running = n;
+        return PhaseOut_running;
     }
     public bool Get_BombStatus()
     {

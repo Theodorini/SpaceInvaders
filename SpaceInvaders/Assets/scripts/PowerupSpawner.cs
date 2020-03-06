@@ -18,7 +18,7 @@ public class PowerupSpawner : MonoBehaviour
         SpawnAlgorithm SpawnAlg_Script = SpawnAlg_Obj.GetComponent<SpawnAlgorithm>();
         Rng = SpawnAlg_Script.Get_RngCounter_Powerups();
         //check if type 1 is needed to spawn
-        int type = Random.Range(5, 5);
+        int type = Random.Range(6, 6);
         //int type = Random.Range(2, Rng);
 
         SpawnPoint = gameObject.transform; // get pos from Enemy here 
