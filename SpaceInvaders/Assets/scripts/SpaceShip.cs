@@ -78,6 +78,7 @@ public class SpaceShip : MonoBehaviour
             HP += maxHp / 4;
         hpBar.SetBar(HP, maxHp);
     }
+    // Coroutines for all timed functions and Start calls for them
     public IEnumerator StartShield()
     {
         
@@ -139,7 +140,7 @@ public class SpaceShip : MonoBehaviour
         Time.timeScale += 0.5f;
         Debug.Log("Out");
     }
-
+    //Get Functions for all timed buffs
     public bool Get_ShieldRunning()
     {
         return Shield_running;
