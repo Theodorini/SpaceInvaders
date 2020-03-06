@@ -341,7 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b608edb1c96b8ae4a99fb9efce431595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfPowerups: 7
+  NumberOfPowerups: 8
   PowerUp_Prefab:
   - {fileID: 5758607900536427987, guid: 0ec38ffaed83f9641b65237f056271a2, type: 3}
   - {fileID: 2792569797088809688, guid: 003a4499f219cfc44a8b8d78568cbf99, type: 3}
@@ -350,6 +350,7 @@ MonoBehaviour:
   - {fileID: 4283037616796671654, guid: 6fde2ce5bca9f944b87a3d44c7a0969d, type: 3}
   - {fileID: 1178645597488488318, guid: 4efd408c7002be9499734bd50a17d1b1, type: 3}
   - {fileID: 7890583078173853926, guid: bcfd30b90e930fd44aecb14471e66c9a, type: 3}
+  - {fileID: 1492169008542744067, guid: 2db5f88143b67ce4bb28aeeb6ef7353f, type: 3}
 --- !u!1001 &165218732457819059
 PrefabInstance:
   m_ObjectHideFlags: 0

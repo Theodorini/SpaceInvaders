@@ -6,18 +6,20 @@ public class SpaceShip : MonoBehaviour
 {
     public int maxHp = 100;
     public int HP=100;
-    public float moveSpeed =25;
+    private float moveSpeed =25;
     public HpBar hpBar;
     public GameObject Shield;
     public GameObject Bomb;
     private bool Shield_running = false;
     private bool Bomb_running = false;
     private bool PhaseOut_running = false;
+    private bool SlowTime_running = false;
 
     private void Start()
     {
         Shield.SetActive(false);
         Bomb.SetActive(false);
+        
     }
     private void Update()
     {
@@ -115,10 +117,26 @@ public class SpaceShip : MonoBehaviour
     }
     public IEnumerator Start_PhaseOut()
     {
-        Debug.Log("In");
+        
         PhaseOut_running = true;
         yield return new WaitForSecondsRealtime(5f);
         PhaseOut_running = false;
+       
+    }
+    public void Start_TimeSlow_Coroutine()
+    {
+        StartCoroutine(Start_TimeSlow());
+    }
+    public IEnumerator Start_TimeSlow()
+    {
+        Debug.Log("In");
+        Time.timeScale -= 0.5f;
+        moveSpeed = moveSpeed * 2;
+        SlowTime_running = true;
+         yield return new WaitForSecondsRealtime(5f);
+        SlowTime_running = false;
+        moveSpeed = moveSpeed / 2;
+        Time.timeScale += 0.5f;
         Debug.Log("Out");
     }
 
@@ -133,5 +151,9 @@ public class SpaceShip : MonoBehaviour
     public bool Get_BombStatus()
     {
         return Bomb_running;
+    }
+    public bool Get_SlowTime_running()
+    {
+        return SlowTime_running;
     }
 }

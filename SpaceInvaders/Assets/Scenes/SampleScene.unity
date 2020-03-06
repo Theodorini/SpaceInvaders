@@ -667,7 +667,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 100
   HP: 100
-  moveSpeed: 25
   hpBar: {fileID: 131386163}
   Shield: {fileID: 1973743662}
   Bomb: {fileID: 20606837}

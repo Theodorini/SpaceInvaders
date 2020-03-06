@@ -50,6 +50,10 @@ public class Power_Up : MonoBehaviour
                     if (target.GetComponent<SpaceShip>().Get_PhaseOut_running() == false)
                         target.GetComponent<SpaceShip>().Start_PhaseOut_Coroutine();
                     break;
+                case 7:
+                    if (target.GetComponent<SpaceShip>().Get_SlowTime_running() == false)
+                        target.GetComponent<SpaceShip>().Start_TimeSlow_Coroutine();
+                    break;
                 default:
                     Debug.Break();
                     break;
