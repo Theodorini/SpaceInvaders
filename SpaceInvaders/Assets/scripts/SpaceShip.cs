@@ -6,17 +6,20 @@ public class SpaceShip : MonoBehaviour
 {
     public int maxHp = 100;
     public int HP=100;
-    public float moveSpeed =25;
+    private float moveSpeed =25;
     public HpBar hpBar;
     public GameObject Shield;
     public GameObject Bomb;
     private bool Shield_running = false;
     private bool Bomb_running = false;
+    private bool PhaseOut_running = false;
+    private bool SlowTime_running = false;
 
     private void Start()
     {
         Shield.SetActive(false);
         Bomb.SetActive(false);
+        
     }
     private void Update()
     {
@@ -43,7 +46,7 @@ public class SpaceShip : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Enemy target = collision.GetComponent<Enemy>();
-        if ((target != null)&&(Bomb_running==false))
+        if ((target != null)&&(Bomb_running==false)&&(PhaseOut_running==false))
         {
             TakeDamage(target.getDamageOnHit());
             Destroy(collision.gameObject);
@@ -74,6 +77,7 @@ public class SpaceShip : MonoBehaviour
             HP += maxHp / 4;
         hpBar.SetBar(HP, maxHp);
     }
+    // Coroutines for all timed functions and Start calls for them
     public IEnumerator StartShield()
     {
         
@@ -107,17 +111,49 @@ public class SpaceShip : MonoBehaviour
         Bomb.SetActive(false);
         Bomb_running = false;
     }
-
+    public void Start_PhaseOut_Coroutine()
+    {
+        StartCoroutine(Start_PhaseOut());
+    }
+    public IEnumerator Start_PhaseOut()
+    {
+        
+        PhaseOut_running = true;
+        yield return new WaitForSecondsRealtime(5f);
+        PhaseOut_running = false;
+       
+    }
+    public void Start_TimeSlow_Coroutine()
+    {
+        StartCoroutine(Start_TimeSlow());
+    }
+    public IEnumerator Start_TimeSlow()
+    {
+        Debug.Log("In");
+        Time.timeScale -= 0.5f;
+        moveSpeed = moveSpeed * 2;
+        SlowTime_running = true;
+         yield return new WaitForSecondsRealtime(5f);
+        SlowTime_running = false;
+        moveSpeed = moveSpeed / 2;
+        Time.timeScale += 0.5f;
+        Debug.Log("Out");
+    }
+    //Get Functions for all timed buffs
     public bool Get_ShieldRunning()
     {
         return Shield_running;
     }
-    public void Set_BombStatus(bool n)
+    public bool Get_PhaseOut_running()
     {
-        Bomb_running = n;
+        return PhaseOut_running;
     }
     public bool Get_BombStatus()
     {
         return Bomb_running;
+    }
+    public bool Get_SlowTime_running()
+    {
+        return SlowTime_running;
     }
 }

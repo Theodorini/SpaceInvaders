@@ -20,7 +20,7 @@ public class BulletEnemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         SpaceShip target = collision.GetComponent<SpaceShip>();
-        if (target != null)
+        if ((target != null)&&(target.Get_PhaseOut_running()==false))
         {
             target.TakeDamage(damage);
             Destroy(gameObject);

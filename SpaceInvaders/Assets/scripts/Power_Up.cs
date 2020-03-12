@@ -46,6 +46,14 @@ public class Power_Up : MonoBehaviour
                     //Bomb
                     target.GetComponent<SpaceShip>().Start_bomb_Coroutine();
                     break;
+                case 6:
+                    if (target.GetComponent<SpaceShip>().Get_PhaseOut_running() == false)
+                        target.GetComponent<SpaceShip>().Start_PhaseOut_Coroutine();
+                    break;
+                case 7:
+                    if (target.GetComponent<SpaceShip>().Get_SlowTime_running() == false)
+                        target.GetComponent<SpaceShip>().Start_TimeSlow_Coroutine();
+                    break;
                 default:
                     Debug.Break();
                     break;
