@@ -57,7 +57,20 @@ public class PowerButton : MonoBehaviour
                     //Max bullets timmed
                     PlayerSpaceShip.gameObject.GetComponent<GunPlayer>().MaxBullets();
                     break;
-
+                case 4:
+                    //Shield
+                        PlayerSpaceShip.StartShield_Coroutine();
+                    break;
+                case 5:
+                    //Bomb
+                    PlayerSpaceShip.Start_bomb_Coroutine();
+                    break;
+                case 6:
+                        PlayerSpaceShip.Start_PhaseOut_Coroutine();
+                    break;
+                case 7:
+                        PlayerSpaceShip.Start_TimeSlow_Coroutine();
+                    break;
                 default:
                     Debug.Break();
                     break;
