@@ -1732,7 +1732,7 @@ PrefabInstance:
     - target: {fileID: 4159389790803082569, guid: e10663960684c1444a8f71e35c9379c4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 96.6
+      value: 84.36
       objectReference: {fileID: 0}
     - target: {fileID: 4159389790803082569, guid: e10663960684c1444a8f71e35c9379c4,
         type: 3}
@@ -1774,6 +1774,56 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4159389790803082571, guid: e10663960684c1444a8f71e35c9379c4,
+        type: 3}
+      propertyPath: PowerUpSprites.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159389790803082571, guid: e10663960684c1444a8f71e35c9379c4,
+        type: 3}
+      propertyPath: PlayerSpaceShip
+      value: 
+      objectReference: {fileID: 353849198}
+    - target: {fileID: 4159389790803082571, guid: e10663960684c1444a8f71e35c9379c4,
+        type: 3}
+      propertyPath: Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159389790803082571, guid: e10663960684c1444a8f71e35c9379c4,
+        type: 3}
+      propertyPath: ReloadSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159389790803082571, guid: e10663960684c1444a8f71e35c9379c4,
+        type: 3}
+      propertyPath: powerUp
+      value: 
+      objectReference: {fileID: 5758607900536427997, guid: 0ec38ffaed83f9641b65237f056271a2,
+        type: 3}
+    - target: {fileID: 4159389790803082571, guid: e10663960684c1444a8f71e35c9379c4,
+        type: 3}
+      propertyPath: PowerUpSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 89d10fa23c6da7c448885757bdc6538e,
+        type: 3}
+    - target: {fileID: 4159389790803082571, guid: e10663960684c1444a8f71e35c9379c4,
+        type: 3}
+      propertyPath: PowerUpSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 886e6ecad8a1b7e4ca7e9804052ba0df,
+        type: 3}
+    - target: {fileID: 4159389790803082571, guid: e10663960684c1444a8f71e35c9379c4,
+        type: 3}
+      propertyPath: PowerUpSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 95ee9c2ec18a90b4da65e23c26e7e758,
+        type: 3}
+    - target: {fileID: 4159389790803082571, guid: e10663960684c1444a8f71e35c9379c4,
+        type: 3}
+      propertyPath: PowerUpSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: d928e40133abb1b4ca6ba9426e80a573,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e10663960684c1444a8f71e35c9379c4, type: 3}
 --- !u!1001 &4425175728683694493
