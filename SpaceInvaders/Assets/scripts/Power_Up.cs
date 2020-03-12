@@ -39,7 +39,7 @@ public class Power_Up : MonoBehaviour
                     break;
                 case 4:
                     //Shield
-                    if(target.GetComponent<SpaceShip>().Get_ShieldRunning() == false)
+                    
                        target.GetComponent<SpaceShip>().StartShield_Coroutine();
                     break;
                 case 5:
@@ -47,11 +47,11 @@ public class Power_Up : MonoBehaviour
                     target.GetComponent<SpaceShip>().Start_bomb_Coroutine();
                     break;
                 case 6:
-                    if (target.GetComponent<SpaceShip>().Get_PhaseOut_running() == false)
+                    
                         target.GetComponent<SpaceShip>().Start_PhaseOut_Coroutine();
                     break;
                 case 7:
-                    if (target.GetComponent<SpaceShip>().Get_SlowTime_running() == false)
+                    
                         target.GetComponent<SpaceShip>().Start_TimeSlow_Coroutine();
                     break;
                 default:

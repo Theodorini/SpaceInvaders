@@ -13,7 +13,9 @@ public class SpaceShip : MonoBehaviour
     private bool Shield_running = false;
     private bool Bomb_running = false;
     private bool PhaseOut_running = false;
-    private bool SlowTime_running = false;
+    private IEnumerator SlowTime_running = null;
+    private IEnumerator PhaseOutCorutine=null;
+    private IEnumerator ShieldCorutine=null;
 
     private void Start()
     {
@@ -82,20 +84,21 @@ public class SpaceShip : MonoBehaviour
     {
         
         Shield_running = true;
-     
-        Debug.Log("Am intrat");
         Shield.SetActive(true);
-       
         yield return new WaitForSecondsRealtime(5f);
-        Debug.Log("Am iesit");
         Shield_running = false;
         Shield.SetActive(false);
+        ShieldCorutine = null;
 
     }
     public void StartShield_Coroutine()
     {
-
-        StartCoroutine(StartShield());
+        if(ShieldCorutine!=null)
+        {
+            StopCoroutine(ShieldCorutine);
+        }
+        ShieldCorutine = StartShield();
+        StartCoroutine(ShieldCorutine);
 
     }
     public void Start_bomb_Coroutine()
@@ -108,36 +111,49 @@ public class SpaceShip : MonoBehaviour
         Bomb_running = true;
         Bomb.SetActive(true);
         yield return new WaitForSecondsRealtime(0.2f);
+
         Bomb.SetActive(false);
         Bomb_running = false;
     }
     public void Start_PhaseOut_Coroutine()
     {
-        StartCoroutine(Start_PhaseOut());
+        if(PhaseOutCorutine!=null)
+        {
+            StopCoroutine(PhaseOutCorutine);
+
+        }
+        PhaseOutCorutine = Start_PhaseOut();
+        StartCoroutine(PhaseOutCorutine);
     }
     public IEnumerator Start_PhaseOut()
     {
         
         PhaseOut_running = true;
         yield return new WaitForSecondsRealtime(5f);
+        PhaseOutCorutine = null;
         PhaseOut_running = false;
        
     }
     public void Start_TimeSlow_Coroutine()
     {
-        StartCoroutine(Start_TimeSlow());
+        if(SlowTime_running!=null)
+        {
+            StopCoroutine(SlowTime_running);
+            moveSpeed = moveSpeed / 2;
+            Time.timeScale = 1f;
+            SlowTime_running = null;
+        }
+        SlowTime_running = Start_TimeSlow();
+        StartCoroutine(SlowTime_running);
     }
     public IEnumerator Start_TimeSlow()
     {
-        Debug.Log("In");
-        Time.timeScale -= 0.5f;
+        Time.timeScale = 0.5f;
         moveSpeed = moveSpeed * 2;
-        SlowTime_running = true;
-         yield return new WaitForSecondsRealtime(5f);
-        SlowTime_running = false;
+         yield return new WaitForSecondsRealtime(10f);
+        SlowTime_running = null;
         moveSpeed = moveSpeed / 2;
-        Time.timeScale += 0.5f;
-        Debug.Log("Out");
+        Time.timeScale = 1f;
     }
     //Get Functions for all timed buffs
     public bool Get_ShieldRunning()
@@ -151,9 +167,5 @@ public class SpaceShip : MonoBehaviour
     public bool Get_BombStatus()
     {
         return Bomb_running;
-    }
-    public bool Get_SlowTime_running()
-    {
-        return SlowTime_running;
     }
 }

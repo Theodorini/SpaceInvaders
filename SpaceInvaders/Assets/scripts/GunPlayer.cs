@@ -7,8 +7,14 @@ public class GunPlayer : MonoBehaviour
     public float shootingSpeed;
     public GameObject bulletPrefab;
     private Transform FirePoint;
+
     public int NrBullets;
     public int BulletDamage = 10;
+
+    private IEnumerator BulletDamageBuff=null;
+
+    private IEnumerator MaxBulletsIenumerator=null;
+    private int ActualBullets;
     private void Shoot()
     {
         if (NrBullets % 2 == 0)
@@ -55,7 +61,13 @@ public class GunPlayer : MonoBehaviour
     }
     public void IncreaseDamage()
     {
-        StartCoroutine(IncreaseDamageCorutine());
+        if(BulletDamageBuff!=null)
+        {
+            StopCoroutine(BulletDamageBuff);
+            BulletDamage -= (int)BulletDamage/5;
+        }
+        BulletDamageBuff = IncreaseDamageCorutine();
+        StartCoroutine(BulletDamageBuff);
     }
 
     private  IEnumerator IncreaseDamageCorutine()
@@ -64,18 +76,26 @@ public class GunPlayer : MonoBehaviour
         BulletDamage += value;
          yield return new WaitForSecondsRealtime(5f);
         BulletDamage -= value;
+        BulletDamageBuff = null;
     }
 
     public void MaxBullets()
     {
-        StartCoroutine(MaxBulletsCorutine());
+        if(MaxBulletsIenumerator!=null)
+        {
+            StopCoroutine(MaxBulletsIenumerator);
+            NrBullets = ActualBullets;
+        }
+        MaxBulletsIenumerator = MaxBulletsCorutine();
+        StartCoroutine(MaxBulletsIenumerator);
     }
     private IEnumerator MaxBulletsCorutine()
     {
-        int value = NrBullets;
+        ActualBullets = NrBullets;
         NrBullets = 12;
         yield return new WaitForSecondsRealtime(5f);
-        NrBullets = value;
+        MaxBulletsIenumerator = null;
+        NrBullets = ActualBullets;
     }
 }
 /*
