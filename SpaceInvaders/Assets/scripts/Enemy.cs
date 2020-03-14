@@ -21,7 +21,17 @@ public class Enemy : MonoBehaviour
             case 1:
                 gameObject.AddComponent<DownMovement>();
                 gameObject.GetComponent<DownMovement>().SetSpeed(speed);
-            break;
+                break;
+            case 2:
+                gameObject.AddComponent<ZigZagMovement>();
+                gameObject.GetComponent<ZigZagMovement>().SetSpeed(speed);
+                gameObject.GetComponent<ZigZagMovement>().SetSpriteWidth(gameObject.GetComponent<SpriteRenderer>().bounds.size.x/2);
+                break;
+            case 3:
+                gameObject.AddComponent<LeftRightMovement>();
+                gameObject.GetComponent<LeftRightMovement>().SetSpeed(speed);
+                gameObject.GetComponent<LeftRightMovement>().SetSpriteWidth(gameObject.GetComponent<SpriteRenderer>().bounds.size.x / 2);
+                break;
 
 
 

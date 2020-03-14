@@ -6,7 +6,7 @@ public class PowerupSpawner : MonoBehaviour
 {
 
     //Called by an Enemy on his death,gets Rng.Counter from SpawnAlgorithm
-    public int NumberOfPowerups = 4;
+    public int NumberOfPowerups = 8;
     public GameObject[] PowerUp_Prefab;
     private Transform SpawnPoint;
     private int Rng;
@@ -18,7 +18,7 @@ public class PowerupSpawner : MonoBehaviour
         SpawnAlgorithm SpawnAlg_Script = SpawnAlg_Obj.GetComponent<SpawnAlgorithm>();
         Rng = SpawnAlg_Script.Get_RngCounter_Powerups();
         //check if type 1 is needed to spawn
-        int type = Random.Range(3, 3);
+        int type = Random.Range(0, 20);
         //int type = Random.Range(2, Rng);
 
         SpawnPoint = gameObject.transform; // get pos from Enemy here 

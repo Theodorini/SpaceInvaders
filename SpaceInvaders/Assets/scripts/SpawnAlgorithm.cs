@@ -12,10 +12,10 @@ public class SpawnAlgorithm : MonoBehaviour
     }
     public void StartSpawn()
     {
-       int spawnNumber = (int) Random.Range(1,1);
+       int spawnNumber = (int) Random.Range(1,5);
         while(spawnNumber--!=0)
         {
-            Spawners[(int)Random.Range(0, 4)].Spawn(1, (int)Random.Range(5,50), 50,1f,100,15);
+            Spawners[(int)Random.Range(0, 4)].Spawn((int)Random.Range(1, 3), (int)Random.Range(5,50), 50,1f,100,15);
         }
     }
     public int Get_RngCounter_Powerups()
