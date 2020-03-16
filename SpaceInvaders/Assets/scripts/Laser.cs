@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Laser : MonoBehaviour
 {
     private Rigidbody2D Rb;
     public float speed = 5;
@@ -15,15 +15,13 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
         Enemy target = collision.GetComponent<Enemy>();
-        if(target!=null)
+        if (target != null)
         {
             target.TakeDamage(damage);
             Destroy(gameObject);
         }
-      
-       
+
     }
     public int GetDamage()
     {
@@ -31,7 +29,7 @@ public class Bullet : MonoBehaviour
     }
     public void SetDamage(int value)
     {
-        
+
         damage = value;
     }
 

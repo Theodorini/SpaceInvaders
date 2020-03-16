@@ -740,8 +740,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootingSpeed: 0.2
-  bulletPrefab: {fileID: 5446313779554884856, guid: e20c853ef2ad3b84c9ae5ae1b30eb130,
-    type: 3}
+  bulletPrefab:
+  - {fileID: 5446313779554884856, guid: e20c853ef2ad3b84c9ae5ae1b30eb130, type: 3}
+  - {fileID: 9017097079430405370, guid: d626d28bca40b784fab69d246264e983, type: 3}
   NrBullets: 1
   BulletDamage: 5
 --- !u!222 &353849197
