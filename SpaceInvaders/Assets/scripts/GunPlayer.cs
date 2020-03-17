@@ -5,7 +5,9 @@ using UnityEngine;
 public class GunPlayer : MonoBehaviour
 {
     public float shootingSpeed;
+    public float GrenadeShootingSpeed;
     public GameObject[] bulletPrefab;
+    public GameObject Grenade_Prefab;
     public int NrBullets;
     public int BulletDamage = 10;
 
@@ -57,7 +59,7 @@ public class GunPlayer : MonoBehaviour
                 bullet.GetComponent<Laser>().SetDamage(BulletDamage);
 
         }
-
+        
     }
     
     private void Start()
@@ -69,7 +71,8 @@ public class GunPlayer : MonoBehaviour
        else if (bulletPrefab[Projectile_Type].GetComponent<Laser>())
             bulletPrefab[Projectile_Type].GetComponent<Laser>().SetDamage(BulletDamage);
 
-        InvokeRepeating("Shoot", 1f, shootingSpeed);//rate of fire = shootingSpeend (delay between shots) 
+        InvokeRepeating("Shoot", 1f, shootingSpeed);//rate of fire = shootingSpeed (delay between shots) 
+        InvokeRepeating("Shoot_Grenade", 10f, GrenadeShootingSpeed);
     }
     //Currently used in SpaceShip to increase number of bullets
     public void Increment_NrBullets()
@@ -119,6 +122,10 @@ public class GunPlayer : MonoBehaviour
         yield return new WaitForSecondsRealtime(5f);
         MaxBulletsIenumerator = null;
         NrBullets = ActualBullets;
+    }
+    public void Shoot_Grenade()
+    {
+        GameObject Grenade = Instantiate(Grenade_Prefab, FirePoint.position, Quaternion.Euler(new Vector3(0, 0, 0)));
     }
 }
 /*

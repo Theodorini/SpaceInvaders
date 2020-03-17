@@ -10,6 +10,7 @@ public class SpaceShip : MonoBehaviour
     public HpBar hpBar;
     public GameObject Shield;
     public GameObject Bomb;
+   
     private bool Shield_running = false;
     private bool Bomb_running = false;
     private bool PhaseOut_running = false;
@@ -168,4 +169,5 @@ public class SpaceShip : MonoBehaviour
     {
         return Bomb_running;
     }
+    
 }

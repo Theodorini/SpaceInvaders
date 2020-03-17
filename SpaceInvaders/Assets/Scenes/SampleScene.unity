@@ -291,7 +291,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 36, y: -49}
+  m_AnchoredPosition: {x: 56, y: -110}
   m_SizeDelta: {x: 2000, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &272277240
@@ -703,7 +703,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 53, y: 17}
+  m_AnchoredPosition: {x: 61, y: 47}
   m_SizeDelta: {x: 20, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &353849195
@@ -740,9 +740,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootingSpeed: 0.2
+  GrenadeShootingSpeed: 10
   bulletPrefab:
   - {fileID: 5446313779554884856, guid: e20c853ef2ad3b84c9ae5ae1b30eb130, type: 3}
   - {fileID: 9017097079430405370, guid: d626d28bca40b784fab69d246264e983, type: 3}
+  Grenade_Prefab: {fileID: 5281306553315937207, guid: cddf5cbb8e3c9734993de4a05244880f,
+    type: 3}
   NrBullets: 1
   BulletDamage: 5
 --- !u!222 &353849197
