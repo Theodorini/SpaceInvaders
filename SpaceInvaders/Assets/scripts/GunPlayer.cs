@@ -72,7 +72,7 @@ public class GunPlayer : MonoBehaviour
             bulletPrefab[Projectile_Type].GetComponent<Laser>().SetDamage(BulletDamage);
 
         InvokeRepeating("Shoot", 1f, shootingSpeed);//rate of fire = shootingSpeed (delay between shots) 
-        InvokeRepeating("Shoot_Grenade", 10f, GrenadeShootingSpeed);
+        InvokeRepeating("Shoot_Grenade", 5f, GrenadeShootingSpeed);
     }
     //Currently used in SpaceShip to increase number of bullets
     public void Increment_NrBullets()

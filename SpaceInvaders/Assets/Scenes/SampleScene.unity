@@ -726,7 +726,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 1
 --- !u!114 &353849196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -740,7 +740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootingSpeed: 0.2
-  GrenadeShootingSpeed: 10
+  GrenadeShootingSpeed: 5
   bulletPrefab:
   - {fileID: 5446313779554884856, guid: e20c853ef2ad3b84c9ae5ae1b30eb130, type: 3}
   - {fileID: 9017097079430405370, guid: d626d28bca40b784fab69d246264e983, type: 3}

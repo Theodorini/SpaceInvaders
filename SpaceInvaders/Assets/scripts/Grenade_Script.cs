@@ -13,8 +13,13 @@ public class Grenade_Script : MonoBehaviour
     {
         Rb = gameObject.GetComponent<Rigidbody2D>();
         Rb.velocity = transform.up * speed;
-        Rb.transform.eulerAngles = new Vector3(0, 0, 50);
+        
+        
 
+    }
+    void Update()
+    {
+        transform.Rotate(0, 0, 100 * Time.deltaTime); 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
