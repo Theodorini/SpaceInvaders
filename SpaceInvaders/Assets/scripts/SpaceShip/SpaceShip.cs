@@ -18,6 +18,20 @@ public class SpaceShip : MonoBehaviour
     private IEnumerator PhaseOutCorutine=null;
     private IEnumerator ShieldCorutine=null;
 
+    public void Constructor(int MaxHP,float MoveSpeed, float shootingSpeed, float grenadeShootingSpeed, int NrBullets, int MaxNumberOfBullets, int BulletDamage, int Projectile_Type)
+    {
+        maxHp = HP = MaxHP;
+        this.moveSpeed = MoveSpeed;
+        Shield_running = false;
+        Bomb_running = false;
+        PhaseOut_running = false;
+        SlowTime_running = null;
+        PhaseOutCorutine = null;
+        ShieldCorutine = null;
+        hpBar = GameObject.Find("HP bar").GetComponent<HpBar>();
+        this.GetComponent<GunPlayer>().Constructor(shootingSpeed, grenadeShootingSpeed, NrBullets, MaxNumberOfBullets, BulletDamage, Projectile_Type);
+}
+
     private void Start()
     {
         Shield.SetActive(false);

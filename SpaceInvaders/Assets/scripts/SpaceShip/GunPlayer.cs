@@ -9,13 +9,27 @@ public class GunPlayer : MonoBehaviour
     public GameObject[] bulletPrefab;
     public GameObject Grenade_Prefab;
     public int NrBullets;
+    public int MaxNumberOfBullets;
     public int BulletDamage = 10;
 
     private Transform FirePoint;
     private int Projectile_Type = 1;
-    private IEnumerator BulletDamageBuff=null;
-    private IEnumerator MaxBulletsIenumerator=null;
+    private IEnumerator BulletDamageBuff;
+    private IEnumerator MaxBulletsIenumerator;
     private int ActualBullets;
+
+    public void Constructor(float shootingSpeed, float grenadeShootingSpeed,int NrBullets, int MaxNumberOfBullets, int BulletDamage, int Projectile_Type)
+    {
+        this.shootingSpeed = shootingSpeed;
+        this.GrenadeShootingSpeed = grenadeShootingSpeed;
+        this.NrBullets = NrBullets;
+        this.MaxNumberOfBullets = MaxNumberOfBullets;
+        this.BulletDamage = BulletDamage;
+        this.Projectile_Type = Projectile_Type;
+        BulletDamageBuff = null;
+        MaxBulletsIenumerator = null;
+    }
+
     private void Shoot()
     {
         if (NrBullets % 2 == 0)
@@ -77,7 +91,7 @@ public class GunPlayer : MonoBehaviour
     //Currently used in SpaceShip to increase number of bullets
     public void Increment_NrBullets()
     {
-        if(NrBullets<10)
+        if(NrBullets<MaxNumberOfBullets)
             NrBullets++;
     }
     public void DecreaseBullets()

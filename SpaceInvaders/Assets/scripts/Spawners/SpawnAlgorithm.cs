@@ -8,7 +8,7 @@ public class SpawnAlgorithm : MonoBehaviour
     public int RngCounter_Powerups=1; // Random.Range (1,RngCounter) where RngCounter descreases by 1 whenever an enemy spawns a Power_Up)
     void Start()
     {
-        InvokeRepeating("StartSpawn", 1f, 3f);
+        InvokeRepeating("StartSpawn", 6f, 3f);
     }
     public void StartSpawn()
     {
