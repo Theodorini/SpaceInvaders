@@ -25,6 +25,15 @@ public class BulletEnemy : MonoBehaviour
             target.TakeDamage(damage);
             Destroy(gameObject);
         }
-       
+        else
+        {
+            Laser target2 = collision.GetComponent<Laser>();
+            if (target2 != null)
+            {
+
+                Destroy(gameObject);
+            }
+        }
+
     }
 }
