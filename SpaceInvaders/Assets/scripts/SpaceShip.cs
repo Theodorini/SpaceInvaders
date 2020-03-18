@@ -36,8 +36,9 @@ public class SpaceShip : MonoBehaviour
         {
             // The screen has been touched so store the touch
             Touch touch = Input.GetTouch(0);
-                Vector3 touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 10));
-            if ((touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved) && touchPosition.y>Screen.height/10)
+            Vector3 touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 10));
+            Vector3 BottomBorder = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 10));
+            if ((touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved) && touchPosition.y >-(BottomBorder.y - BottomBorder.y *0.4f))
             {
                 // If the finger is on the screen, move the object smoothly to the touch position
                 touchPosition.z = 0f;
@@ -59,10 +60,12 @@ public class SpaceShip : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+
         HP -= damage;
         if (HP <= 0)
         {
             hpBar.SetBar(0f, maxHp);
+            
             Destroy(gameObject);
         }
         else

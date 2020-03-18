@@ -29,7 +29,6 @@ public class ZigZagMovement : MonoBehaviour
 
     public void SetSpriteWidth(float width)
     {
-        Debug.Log(width);
         this.SpriteWith = width;
     }
 
